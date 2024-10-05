@@ -43,7 +43,7 @@
     "@nebular/auth": "^7.0.5",
     "@nebular/eva-icons": "4.4.0",
     "@nebular/security": "4.4.0",
-    "@nebular/theme": "^10.0.0",
+    "@nebular/theme": "^11.0.1",
     "@swimlane/ngx-charts": "^17.0.1",
     "angular-tree-component": "7.2.0",
     "angular2-chartjs": "0.4.1",
