@@ -34,37 +34,36 @@ import { PasswordStrengthBarModule } from "./pages/password-strength-bar/passwor
 import { ConfirmpasswordComponent } from "./pages/login/confirmpassword/confirmpassword.component";
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		ForgotComponent,
-		ChangepasswordComponent,
-		AdminProfileComponent,
-		LoginComponent,
-		ConfirmpasswordComponent,
-	],
-	imports: [
-		BrowserModule,
-		BrowserAnimationsModule,
-		HttpClientModule,
-		AppRoutingModule,
-		ThemeModule.forRoot(),
-		NbSidebarModule.forRoot(),
-		NbMenuModule.forRoot(),
-		NbDatepickerModule.forRoot(),
-		NbDialogModule.forRoot(),
-		NbWindowModule.forRoot(),
-		NbToastrModule.forRoot(),
-		NbCardModule,
-		NbLayoutModule,
-		NbChatModule.forRoot({
-			messageGoogleMapKey: "AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY",
-		}),
-		CoreModule.forRoot(),
-		DialogModule,
-		FormsModule,
-		PasswordStrengthBarModule,
-	],
-	bootstrap: [AppComponent],
-	entryComponents: [ForgotComponent, AdminProfileComponent],
+    declarations: [
+        AppComponent,
+        ForgotComponent,
+        ChangepasswordComponent,
+        AdminProfileComponent,
+        LoginComponent,
+        ConfirmpasswordComponent,
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        AppRoutingModule,
+        ThemeModule.forRoot(),
+        NbSidebarModule.forRoot(),
+        NbMenuModule.forRoot(),
+        NbDatepickerModule.forRoot(),
+        NbDialogModule.forRoot(),
+        NbWindowModule.forRoot(),
+        NbToastrModule.forRoot(),
+        NbCardModule,
+        NbLayoutModule,
+        NbChatModule.forRoot({
+            messageGoogleMapKey: "AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY",
+        }),
+        CoreModule.forRoot(),
+        DialogModule,
+        FormsModule,
+        PasswordStrengthBarModule,
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {}

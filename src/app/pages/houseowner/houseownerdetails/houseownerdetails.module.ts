@@ -12,26 +12,22 @@ import { RatingModule } from 'ng-starrating';
 
 
 @NgModule({
-  declarations: [HouseownerdetailsComponent,HouseownerprofileComponent, ParkingspotComponent, HouseownerdetailviewComponent],
-  imports: [
-    HouseOwnerDetailsRoutingModule,
-    NbMenuModule,
-    NbButtonModule,
-    ThemeModule,
-    NbCardModule,
-    NbIconModule,
-    NbTabsetModule,
-    NgxUsefulSwiperModule,
-    NbDialogModule.forRoot(),
-    NbLayoutModule,
-    FormsModule,
-    NbTooltipModule,
-    RatingModule
-  ],
-  entryComponents:[
-  ],
-  providers: [
-    
-  ]
+    declarations: [HouseownerdetailsComponent, HouseownerprofileComponent, ParkingspotComponent, HouseownerdetailviewComponent],
+    imports: [
+        HouseOwnerDetailsRoutingModule,
+        NbMenuModule,
+        NbButtonModule,
+        ThemeModule,
+        NbCardModule,
+        NbIconModule,
+        NbTabsetModule,
+        NgxUsefulSwiperModule,
+        NbDialogModule.forRoot(),
+        NbLayoutModule,
+        FormsModule,
+        NbTooltipModule,
+        RatingModule
+    ],
+    providers: []
 })
 export class HouseownerdetailsModule { }

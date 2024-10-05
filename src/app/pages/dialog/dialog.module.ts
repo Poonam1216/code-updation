@@ -7,15 +7,14 @@ import { FormsModule } from "@angular/forms";
 import { PasswordStrengthBarModule } from '../password-strength-bar/password-strength-bar.module';
 
 @NgModule({
-  declarations: [DeleteDialogComponent, AdminChangePasswordComponent],
-  imports: [
-    ThemeModule,
-    NbCardModule,
-    NbButtonModule,
-    NbInputModule,
-    FormsModule,
-    PasswordStrengthBarModule,
-  ],
-  entryComponents: [DeleteDialogComponent, AdminChangePasswordComponent],
+    declarations: [DeleteDialogComponent, AdminChangePasswordComponent],
+    imports: [
+        ThemeModule,
+        NbCardModule,
+        NbButtonModule,
+        NbInputModule,
+        FormsModule,
+        PasswordStrengthBarModule,
+    ]
 })
 export class DialogModule { }
