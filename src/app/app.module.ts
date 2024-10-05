@@ -6,7 +6,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
-import { HttpClientModule } from "@angular/common/http";
+import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import { CoreModule } from "./@core/core.module";
 import { ThemeModule } from "./@theme/theme.module";
 import { AppComponent } from "./app.component";
@@ -33,8 +33,7 @@ import { AdminProfileComponent } from "./pages/admin-profile/admin-profile.compo
 import { PasswordStrengthBarModule } from "./pages/password-strength-bar/password-strength-bar.module";
 import { ConfirmpasswordComponent } from "./pages/login/confirmpassword/confirmpassword.component";
 
-@NgModule({
-    declarations: [
+@NgModule({ declarations: [
         AppComponent,
         ForgotComponent,
         ChangepasswordComponent,
@@ -42,10 +41,8 @@ import { ConfirmpasswordComponent } from "./pages/login/confirmpassword/confirmp
         LoginComponent,
         ConfirmpasswordComponent,
     ],
-    imports: [
-        BrowserModule,
+    bootstrap: [AppComponent], imports: [BrowserModule,
         BrowserAnimationsModule,
-        HttpClientModule,
         AppRoutingModule,
         ThemeModule.forRoot(),
         NbSidebarModule.forRoot(),
@@ -62,8 +59,5 @@ import { ConfirmpasswordComponent } from "./pages/login/confirmpassword/confirmp
         CoreModule.forRoot(),
         DialogModule,
         FormsModule,
-        PasswordStrengthBarModule,
-    ],
-    bootstrap: [AppComponent]
-})
+        PasswordStrengthBarModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}
