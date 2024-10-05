@@ -1,0 +1,14 @@
+<nb-card size="large">
+  <label class="book-title">Booking</label>
+  
+  <div class="chart-container">
+    <div class="chart-spinner" *ngIf="showSpinner"></div>
+    <ngx-chart-panel-summary [summary]="chartPanelSummary" [type]="period"
+    (periodChange)="setPeriodAndGetChartData($event)"></ngx-chart-panel-summary>
+    <ngx-chart-panel-header >
+    </ngx-chart-panel-header>
+    <ngx-profit-chart *ngIf="profitChartData" #profitChart [profitChartData]="profitChartData"></ngx-profit-chart>
+  </div>
+
+
+</nb-card>

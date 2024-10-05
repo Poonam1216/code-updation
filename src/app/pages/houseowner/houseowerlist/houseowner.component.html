@@ -1,0 +1,23 @@
+<nb-card>
+  <nb-card-header>
+    <div class="row">
+      <div class="col-lg-6 col-sm-4">House Owner</div>
+      <div class="col-lg-3 col-sm-4 text-right">
+        <nb-select class="ho-filter" [(selected)]="selectedItem" (selectedChange)="changeStatus($event)">
+          <nb-option value="0">Mortgage Pending</nb-option>
+          <nb-option value="1">Mortgage Approved</nb-option>
+          <nb-option value="2">Mortage Rejected</nb-option>
+          <nb-option value="3">All Mortgage</nb-option>
+        </nb-select>
+      </div>
+      <div class="col-lg-3 col-sm-4">
+        <input type="text" nbInput  placeholder="Search" class="paddfilter" name="search_data" [(ngModel)]="search" (ngModelChange)="searchBy()">
+      </div>  
+    </div>
+  </nb-card-header>
+  <nb-card-body class="full-table-wrap">
+    <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)" (editConfirm)="onEditConfirm($event)" (createConfirm)="onCreateConfirm($event)"  (userRowSelect)="onUserRowSelect($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>
+

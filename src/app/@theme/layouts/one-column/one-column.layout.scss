@@ -1,0 +1,17 @@
+@import '../../styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+@include nb-install-component() {
+  .menu-sidebar ::ng-deep .scrollable {
+    padding-top: nb-theme(layout-padding-top);
+  }
+}
+
+nb-layout-header{
+  background-image: linear-gradient(to right, #007EC3,#007EC4,#0080C4,#0081C4,#0081C5,#0082C5,#0083C5,#0083C6,#0085c4,#0085c6,#009CD3,#00A1D5,#00A3D7,#00A7D8);
+}
+
+.last-week .progress-value {
+  background-color: green !important;
+}

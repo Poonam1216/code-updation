@@ -1,0 +1,148 @@
+<nb-layout>
+  <nb-layout-column>
+    <ng-template #rejectdialog let-data let-ref="dialogRef">
+      <nb-card>
+        <nb-card-header>Reject reason</nb-card-header>
+        <nb-card-body>
+          <div class="row">
+            <div class="col-lg-12" style="width: 400px;">
+              <textarea class="form-control" [(ngModel)]="rejectReason" name="reason" placeholder="Write reason"></textarea>
+            </div>
+          </div>
+        </nb-card-body>  
+        <nb-card-footer class="text-right">
+          <button nbButton status="basic" (click)="ref.close()">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button nbButton status="primary" [disabled]="rejectReason === ''" (click)="approvereject(parkingData.Id,'2'); ref.close()">Submit</button>
+        </nb-card-footer>
+      </nb-card>
+    </ng-template>
+
+    <div class="background-card-color">
+      <div class="row profile-margin">
+        <div class="col-12 col-lg-1 col-md-1"></div>
+        <div class="col-12 col-lg-10 col-md-10">
+          <nb-card>
+            <nb-card-header>
+              <div class="row">
+
+                <div class="col-lg-6 col-sm-12 col-md-12 col-12 profile-title ">
+                  <label (click)="backPage()" class="mouse-pointer">
+                    <nb-icon icon="arrow" pack="housepark"></nb-icon>&nbsp;
+                  </label>
+                </div>
+              </div>
+            </nb-card-header>
+            <nb-card-body>
+              <div class="row">
+                <div class="col-12 col-md-12 col-lg-12">
+                  <swiper [config]="config">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide" *ngFor="let imgData of parkingData.imageUploads ; let i = index">
+                        <img src="{{imgUrl}}{{imgData.path}}" />
+                      </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                  </swiper>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 text-right" *ngIf="parkingData.parkingratings !== undefined" style="padding: 25px 15px;">
+                  <span style="display: inline-block;margin-right: 10px;" *ngIf="parkingData.parkingratings.length != 0">
+                    <star-rating [value]="parkingData.parkingratings[0].Average" totalstars="5" [checkedcolor]="'gold'" uncheckedcolor="rgb(143, 195, 228)" size="18px" [readonly]="(3) ? true : false"></star-rating>
+                  </span>
+                  <span class="rating-count" *ngIf="parkingData.parkingratings.length != 0">({{parkingData.parkingratings[0].RatingsCount}})</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12 col-lg-12 col-xl-6 p-l">
+                  <nb-icon class="car-location" icon="distension" pack="housepark"></nb-icon>
+                  <label class="address-box">{{parkingData.addressline1}}, {{parkingData.addressline2}}</label>
+                </div>
+                <div class="col-sm-4 col-lg-4 col-xl-2 p-l-res">
+                  <div class="price-txt">$ {{parkingData.hourlyPrice}}</div>
+                  <div class="address">Hours Price</div>
+                </div>
+                <div class="col-sm-4 col-lg-4 col-xl-2">
+                  <div class="price-txt">$ {{parkingData.dailyPrice}}</div>
+                  <div class="address">Day Price</div>
+                </div>
+                <div class="col-sm-4 col-lg-4 col-xl-2">
+                  <div class="price-txt">$ {{parkingData.monthlyPrice}}</div>
+                  <div class="address">Monthly Price</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-1 col-md-2 col-lg-1 p-l">
+                  <nb-card (click)="openDocument(parkingData.mortgage[0].path)" style="margin-bottom: 0;">
+                    <div class="m-30" nbTooltip="Click here to View"><img src="assets/housedetailsicons/document_ic.svg" class="mortgare-height"></div>
+                  </nb-card>
+                </div>
+                <div  class="col-lg-2 col-sm-4 col-md-4 col-12" *ngIf="parkingData.mortgageVerification == '0'">
+                  <button class="btn-filter btn-approved" (click)="approvereject(parkingData.Id,'1')">Approve</button>
+                  <!-- <button  class="btn-filter btn-reject" (click)="approvereject(parkingData.Id,'2')">Reject</button> -->
+                  <button  class="btn-filter btn-reject" (click)="openRejectModal(rejectdialog)">Reject</button>
+                </div>
+                  <div  class="col-lg-2 col-sm-4 col-md-4 col-12" *ngIf="parkingData.mortgageVerification == '1'">
+                      <button class="btn-filter btn-approved">Approved</button>
+                  </div>
+                    <div class="col-lg-2 col-sm-4 col-md-4 col-12" *ngIf="parkingData.mortgageVerification == '2'">
+                      <button  class="btn-filter btn-reject">Rejected</button>
+                      <span *ngIf="parkingData.remark !== ''" style="display: inline-block; width: 100%;">Remark :- <b>{{parkingData.remark}}</b></span>
+                  </div>
+              </div>
+
+              <div class="row bottom-line-row">
+                <div class="col-12 border-line"></div>
+              </div>
+
+              <div class="row m-l-25">
+
+                <div class="col-12 col-md-12 col-lg-6 col-xl-5">
+                  <div class="row">
+                    <div class="col-12 ame">Amenities</div>
+                  </div>
+                  <div class="row border-line-ameneties" *ngFor="let am of parkingData.amenetiesName">
+                    <div class="col-6 amename">{{am.name}}</div>
+                    <div class="col-6 text-right">
+                      <nb-icon icon="tick-blue" pack="housepark"></nb-icon>
+                    </div>
+                  </div>
+                  <div class="text-center" *ngIf="parkingData.amenetiesName == null">No Amenities Available</div>
+                  <div class="row m-t-30">
+                    <div class="col-12 ame">Security</div>
+                  </div>
+                  <div class="row border-line-ameneties" *ngFor="let sec of parkingData.securityName">
+                    <div class="col-6 amename">{{sec.name}}</div>
+                    <div class="col-6 text-right">
+                      <nb-icon icon="tick-blue" pack="housepark"></nb-icon>
+                    </div>
+                  </div>
+                  <div class="text-center" *ngIf="parkingData.securityName == null">No Security Available</div>
+                </div>
+                <div class="col-12 col-md-2 col-lg-2 hide-res"></div>
+                <div class="col-12 col-md-12 col-lg-6 col-xl-5">
+                  <div class="row">
+                    <div class="col-12 ame m-t-res">Hours Of Operation</div>
+                  </div>
+                  <div class="row border-line-ameneties" *ngFor="let hrs of parkingData.hours">
+                    <div class="col-5 amename">{{hrs.days}}</div>
+                    <div class="col-7 text-right amename" *ngIf="hrs.checked == 1">
+                      {{hrs.fromDate }} to {{hrs.toDate }}
+                    </div>
+                    <div class="col-7 text-right amename" *ngIf="hrs.checked == 0">
+                      Not Available
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </nb-card-body>
+          </nb-card>
+        </div>
+        <div class="col-12 col-lg-1 col-md-1"></div>
+      </div>
+    </div>
+  </nb-layout-column>
+</nb-layout>

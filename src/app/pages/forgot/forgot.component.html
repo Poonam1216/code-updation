@@ -1,0 +1,15 @@
+<nb-card>
+  <nb-card-header>Forgot Password</nb-card-header>
+  <nb-card-body class="forgot-text">
+    <input type="text" nbInput placeholder="Enter Email address" [(ngModel)]="forgot_text" />
+    <span *ngIf="check_textbox">{{textMessage}}</span>
+  </nb-card-body>
+  <nb-card-footer>
+    <div class="row">
+      <div class="col-12 text-right">
+        <button nbButton class="btn-forgot" (click)="confirmForgot()" [disabled]="checkButtonRes">Submit</button>&nbsp;&nbsp;&nbsp;
+        <button nbButton class="btn-forgot btn-danger" (click)="dismiss()">Cancel</button>
+      </div>
+    </div>
+  </nb-card-footer>
+</nb-card>

@@ -1,0 +1,13 @@
+<nb-card>
+  <nb-card-header>{{ title }}</nb-card-header>
+  <nb-card-body>
+   Are You Sure Want to Delete User?
+  </nb-card-body>
+  <nb-card-footer>
+    <div class="row">
+      <div class="col-6 text-right"><button nbButton hero status="primary" (click)="sure()">Yes</button></div>
+      <div class="col-6"><button nbButton hero status="primary" (click)="dismiss()">No</button></div>
+    </div>
+   
+  </nb-card-footer>
+</nb-card>

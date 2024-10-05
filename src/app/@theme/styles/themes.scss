@@ -1,0 +1,222 @@
+// @nebular theming framework
+@import '~@nebular/theme/styles/theming';
+// @nebular out of the box themes
+@import '~@nebular/theme/styles/themes';
+
+$nb-themes: nb-register-theme((
+  layout-padding-top: 2.25rem,
+
+  menu-item-icon-margin: 0 0.5rem 0 0,
+
+  card-height-tiny: 13.5rem,
+  card-height-small: 21.1875rem,
+  card-height-medium: 28.875rem,
+  card-height-large: 36.5625rem,
+  card-height-giant: 44.25rem,
+  card-margin-bottom: 1.875rem,
+  card-header-with-select-padding-top: 0.5rem,
+  card-header-with-select-padding-bottom: 0.5rem,
+
+  select-min-width: 6rem,
+
+  slide-out-background: #f7f9fc,
+  slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
+  slide-out-shadow-color-rtl: 0 4px 14px 0 #8f9bb3,
+), default, default);
+
+$nb-themes: nb-register-theme((
+  layout-padding-top: 2.25rem,
+
+  menu-item-icon-margin: 0 0.5rem 0 0,
+
+  card-height-tiny: 13.5rem,
+  card-height-small: 21.1875rem,
+  card-height-medium: 28.875rem,
+  card-height-large: 36.5625rem,
+  card-height-giant: 44.25rem,
+  card-margin-bottom: 1.875rem,
+  card-header-with-select-padding-top: 0.5rem,
+  card-header-with-select-padding-bottom: 0.5rem,
+
+  select-min-width: 6rem,
+
+  slide-out-background: #252547,
+  slide-out-shadow-color: 2px 0 3px #29157a,
+  slide-out-shadow-color-rtl: -2px 0 3px #29157a,
+), cosmic, cosmic);
+
+$nb-themes: nb-register-theme((
+  layout-padding-top: 2.25rem,
+
+  menu-item-icon-margin: 0 0.5rem 0 0,
+
+  card-height-tiny: 13.5rem,
+  card-height-small: 21.1875rem,
+  card-height-medium: 28.875rem,
+  card-height-large: 36.5625rem,
+  card-height-giant: 44.25rem,
+  card-margin-bottom: 1.875rem,
+  card-header-with-select-padding-top: 0.5rem,
+  card-header-with-select-padding-bottom: 0.5rem,
+
+  select-min-width: 6rem,
+
+  slide-out-background: linear-gradient(270deg, #edf1f7 0%, #e4e9f2 100%),
+  slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
+  slide-out-shadow-color-rtl: 0 4px 14px 0 #8f9bb3,
+), corporate, corporate);
+
+$nb-themes: nb-register-theme((
+  layout-padding-top: 2.25rem,
+
+  menu-item-icon-margin: 0 0.5rem 0 0,
+
+  card-height-tiny: 13.5rem,
+  card-height-small: 21.1875rem,
+  card-height-medium: 28.875rem,
+  card-height-large: 36.5625rem,
+  card-height-giant: 44.25rem,
+  card-margin-bottom: 1.875rem,
+  card-header-with-select-padding-top: 0.5rem,
+  card-header-with-select-padding-bottom: 0.5rem,
+
+  select-min-width: 6rem,
+
+  slide-out-background: linear-gradient(270deg, #222b45 0%, #151a30 100%),
+  slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
+  slide-out-shadow-color-rtl: 0 4px 14px 0 #8f9bb3,
+), dark, dark);
+
+$pending: #FF9F00;
+$cancel: #FF2C2D;
+$book-blue: #0089C7;
+$complete: #00AE3D;
+$font-blue: #007EC3;
+$black-font: #050505;
+$dark-grey: #525557;
+$light-grey: #B0B0B0;
+$border-color: #E5E5E5;
+
+
+nb-card {
+  border-radius: 0.75rem !important;
+}
+
+
+.last-week .progress-value {
+  background-color: #00D4D5 !important;
+}
+
+.today-bar .progress-value {
+  background-color: rgb(41, 146, 206) !important;
+}
+
+.icon-size .icon-container {
+  padding:0 !important;
+  .status-primary {
+    width: 6.99rem !important;
+    height: 5.99rem !important;
+  }
+}
+
+.dark-header {
+  a{
+      font-size: 14px !important;
+      font-weight: 700 !important;
+      color:$font-blue !important;
+  }
+}
+
+.active-status {
+  background-color: #14cf14;
+  font-size: 14px;
+  color: #FFFFFF;
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 5px;
+}
+.delete-status {
+  background-color: red;
+  font-size: 14px;
+  color: #FFFFFF;
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.table-column-font {
+  color: $dark-grey;
+  font-size:14px;
+}
+
+.reason-break {
+  width: 250px;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.dark-transaction-id {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color:$black-font !important;
+}
+
+.dot {
+  height: 20px !important;
+  width: 20px !important;
+  border-radius: 50% !important;
+  display: inline-block !important;
+}
+
+.status-margin {
+  margin-left:1.5rem !important;
+}
+.pending {
+  background-color: $pending  !important;
+}
+
+.complete {
+  background-color: $complete !important;
+}
+
+.book {
+  background-color: $book-blue  !important;
+}
+
+.cancel {
+  background-color: $cancel  !important;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.nameIcon {
+  background-image: url("assets/svg/name_ic.svg");
+  background-repeat: no-repeat;
+  margin-top:5px;
+  width: 25px;
+}
+
+.name-magin {
+  margin-left: 2rem;
+}
+
+
+.yellow-star {
+  color: #FFC209;
+}
+
+.grey-star {
+  color: #CACAC8;
+}
+
+.nb-theme-default nb-layout .layout {
+  background-color: #f5f5f5 !important;
+}
+.nb-theme-default nb-layout nb-card {
+  box-shadow: none;
+}

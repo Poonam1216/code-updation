@@ -1,0 +1,62 @@
+<div class="header-container">
+  <div class="logo-container">
+    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+      <nb-icon icon="menu-2-outline" class="header-text"></nb-icon>
+    </a>
+    <a class="logo" href="#" (click)="navigateHome()">
+      <img src="./assets/svg/logo.svg" width="30" alt="Img" />
+      <span>HousePark</span>
+    </a>
+  </div>
+</div>
+<ngx-spinner></ngx-spinner>
+<div class="header-container">
+  <div class="noti-wrapper" #notiEl [hidden]="!isNotiShow">
+    <div class="noti-flex pd-TB8">
+       <div class="noti-txt-1">
+         Notifications
+       </div>
+       <div class="noti-txt-2">
+         <button (click)="markAllRead()" [disabled]="notires.length <= 0"> Mark as all read </button>
+       </div>
+    </div>
+    <div class="noti-footer noti-txt-3" *ngIf="notires.length <= 0">No recent notifications...</div>
+    <div class="noti-main">
+      <div *ngFor="let item of notires; let i = index">
+        <a href="javascript:void(0)" class="noti-flex" (click)="notiRedirect(item, i)" >
+          <div class="noti-img">
+            <img src="./assets/svg/right-arrow.svg"  alt="Img" />
+          </div>
+          <div class="noti-text">
+            <div class="bold-txt">{{item.title}}</div>
+            <div>{{item.detail}}.</div>
+            <div class="noti-txt-3">{{item.updatedAt }}</div>
+          </div>
+        </a>
+        <div *ngIf="!(notires.length == i+1)" class="hori-rule"></div>
+      </div>
+    </div>
+  </div>
+  <div class="noti-icon-field" #iconEl>
+      <a href="javascript:void(0)" (click)="onNotiClick()" style="position: relative;">
+        <nb-badge [text]="notiNo" status="danger" position="top right" *ngIf="notires.length > 0"></nb-badge>
+        <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/notification-142-647836.png" alt="logo">
+      </a>
+  </div>
+  <!-- <nb-actions #iconEl size="small">
+    <nb-action icon="bell-outline" (click)="onNotiClick()" [badgeText]="notiNo" badgeStatus="danger" >
+    </nb-action>
+  </nb-actions> -->
+  <nb-actions size="small">
+    <nb-action class="user-action" *nbIsGranted="['view', 'user']">
+      <!-- [picture]="user?.picture" -->
+      <nb-user [onlyPicture]="userPictureOnly" [name]="adminusername" [nbContextMenu]="userMenu"
+        [picture]="profileImage" [class]="header-text">
+      </nb-user>
+    </nb-action>
+  </nb-actions>
+  <a href="javascript:void(0)" class="btn-logout" (click)="logout()">
+    <nb-icon class="control-item header-text" icon="log-out-outline">Logout</nb-icon>
+    <span>Logout</span>
+  </a>
+</div>

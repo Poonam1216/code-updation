@@ -1,0 +1,90 @@
+@import '../../../../@theme/styles/themes.scss';
+
+.font-colr {
+    color: $font-blue;
+}
+
+.profile-title {
+    font-size: 15px;
+    font-weight: 700;
+
+}
+
+.label-con {
+    float:left;
+    margin-right: 10px;
+}
+
+.section-margin {
+    margin-top:15px;
+    border-bottom: 1px solid $border-color;
+}
+
+.border-margin {
+    margin-bottom: 15px;
+}
+
+.title {
+    color:$black-font;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.detail-title {
+    color:$dark-grey;
+    font-size: 12px;
+}
+
+.margin-title {
+    margin-top: 10px;
+}
+
+.img-center {
+    text-align: center;
+
+    img {
+        width: 250px;
+        margin-top: 50px;
+        border-radius: 50%;
+        height: 250px;
+        object-fit: cover;
+        display: block;
+        margin: auto;
+    }
+}
+
+.title {
+    font-size: 12px;
+} 
+
+@media screen and (max-width: 900px) {
+    .img-center {
+        text-align: center;
+    
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: none;
+        }
+    }  
+}
+
+@media (max-width:768px){
+    .img-center {
+        position: relative;
+        top: 60px;
+        img {
+            width: 186px;
+            height: 186px;
+        }
+    }   
+}
+
+.name-title{
+    margin-left:25px;
+}
+
+.img-w {
+    width: 250px;
+    margin-top: 50px;
+}

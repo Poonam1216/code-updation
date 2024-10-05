@@ -1,0 +1,63 @@
+<nb-card size="medium">
+
+  <nb-card-header>
+    <span class="com-cs">Commission</span>
+    <span class="perc">{{iosvalue}}%</span>
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="row">
+      <div class="col-lg-12 col-sm-6">
+        <div class="row  row-margin">
+          <div class="col-12 total-txt">Total Commission</div>
+          <div class="col-12 total-txt-num">${{totalvalue}}</div>
+          <!-- <div class="col-12">
+            <nb-progress-bar [value]="70" status="danger" class="last-week"></nb-progress-bar>
+          </div> -->
+          <!-- <div class="col-12 last-week-better">
+          Better than last week (70%)
+          </div> -->
+        </div>
+      </div>
+      <div class="col-lg-12 col-sm-6">
+        <div class="row row-margin">
+          <div class="col-12 total-txt">Last Month</div>
+          <div class="col-12 total-txt-num">${{previousmonth}}</div>
+          <!-- <div class="col-12">
+            <nb-progress-bar [value]="60" status="warning"></nb-progress-bar>
+          </div> -->
+          <!-- <div class="col-12 last-week-better">
+           Better than last week (60%)
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-sm-6">
+        <div class="row  row-margin">
+          <div class="col-12 total-txt">Current Month</div>
+          <div class="col-12 total-txt-num">${{currentmonth}}</div>
+          <!-- <div class="col-12">
+            <nb-progress-bar [value]="20" status="danger"></nb-progress-bar>
+          </div> -->
+          <!-- <div class="col-12 last-week-better">
+           Better than last week (20%)
+          </div> -->
+        </div>
+      </div>
+      <div class="col-lg-12 col-sm-6">
+        <div class="row row-margin">
+          <div class="col-12 total-txt">Today</div>
+          <div class="col-12 total-txt-num">${{today}}</div>
+          <!-- <div class="col-12">
+            <nb-progress-bar [value]="20" status="danger"></nb-progress-bar>
+          </div> -->
+          <!-- <div class="col-12 last-week-better">
+          Better than last week (20%)
+          </div> -->
+        </div>
+      </div>
+    </div>
+</nb-card-body>
+
+</nb-card>

@@ -1,0 +1,18 @@
+.filterwidth {
+    width: 100%;
+}
+
+.btn-filter {
+    background-color: rgb(21, 125, 195);
+    outline: none;
+    color: #FFF;
+    border: 0;
+    padding: 11px 20px;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 992px) {
+    .paddfilter {
+        margin-top: 10px;
+    }
+}

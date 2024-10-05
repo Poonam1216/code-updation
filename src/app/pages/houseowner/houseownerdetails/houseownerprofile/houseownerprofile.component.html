@@ -1,0 +1,145 @@
+<nb-card>
+  <nb-card-header>
+    <div class="row">
+
+      <div class="col-lg-6 col-sm-12 col-md-12 col-12 profile-title ">
+        <label (click)="backPage()" class="mouse-pointer"><nb-icon icon="arrow" pack="housepark"></nb-icon></label>
+        <label (click)="backPage()" class="mouse-pointer name-title">{{profileData.first_name}} {{profileData.last_name}}</label></div>
+      <div class="col-lg-2 col-sm-4 col-md-4 col-12 paddfilter">
+
+      </div>
+    </div>
+
+
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="row">
+      <div class="col-12 col-lg-4 col-md-4">
+        <div class="font-colr profile-title margin-title">Basic Profile</div>
+
+        <div class="section-margin">
+          <label class="label-con">
+            <nb-icon icon="profile" pack="housepark"></nb-icon>
+          </label>
+          <div class="border-margin">
+            <span class="title">Name</span>
+            <div class="detail-title">{{profileData.first_name}} {{profileData.last_name}}</div>
+          </div>
+        </div>
+
+        <div class="section-margin">
+          <label class="label-con">
+            <nb-icon icon="email" pack="housepark"></nb-icon>
+          </label>
+          <div class="border-margin">
+            <span class="title">Email Address</span>
+            <div class="detail-title" *ngIf="profileData.email != ''" [innerHtml]="profileData.email"></div>
+            <div class="detail-title" *ngIf="profileData.email == ''">-</div>
+          </div>
+        </div>
+
+        <div class="section-margin">
+          <label class="label-con">
+            <nb-icon icon="mobile" pack="housepark"></nb-icon>
+          </label>
+          <div class="border-margin">
+            <span class="title">Mobile Number</span>
+            <div class="detail-title" *ngIf="profileData.mobile != ''" [innerHtml]="profileData.mobile"></div>
+            <div class="detail-title" *ngIf="profileData.mobile == ''">-</div>
+          </div>
+        </div>
+
+        <div class="section-margin">
+          <label class="label-con">
+            <nb-icon icon="cake" pack="housepark"></nb-icon>
+          </label>
+          <div class="border-margin">
+            <span class="title">Date of Birth</span>
+            <div class="detail-title" *ngIf="profileData.dob != ''">{{profileData.dob | date: 'mediumDate': 'UTC'}}</div>
+            <div class="detail-title" *ngIf="profileData.dob == '' ">-</div>
+          </div>
+        </div>
+
+        <div class="section-margin">
+          <label class="label-con">
+            <nb-icon icon="address" pack="housepark"></nb-icon>
+          </label>
+          <div class="border-margin">
+            <span class="title">Address</span>
+            <div class="detail-title" *ngIf="profileData.address != ''">{{profileData.address}} {{profileData.address_one}}</div>
+            <div class="detail-title" *ngIf="profileData.address == ''">-</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-12 col-lg-4 col-md-4">
+        <div class="img-center"><img class="img-w" src="{{imgUrl}}{{profileData.profile_path}}"  onerror="this.src='./assets/svg/profile_ic.svg'" /></div>
+        
+      </div>
+
+      <div class="col-12 col-lg-4 col-md-4">
+
+        <div class="font-colr profile-title">Your Banking Details</div>
+
+        <div class="section-margin">
+          <label class="label-con">
+            <nb-icon icon="bankName" pack="housepark"></nb-icon>
+          </label>
+          <div class="border-margin">
+            <span class="title">Bank Name</span>
+            <div class="detail-title" *ngIf="bankDetails.bankName != ''" [innerHtml]="bankDetails.bankName"></div>
+            <div class="detail-title" *ngIf="bankDetails.bankName == ''">-</div>
+          </div>
+        </div>
+
+        <div class="section-margin">
+          <label class="label-con">
+            <nb-icon icon="AccountNumb" pack="housepark"></nb-icon>
+          </label>
+          <div class="border-margin">
+            <span class="title">Account Number</span>
+            <div class="detail-title" *ngIf="bankDetails.accountNumber != ''" [innerHtml]="bankDetails.accountNumber"></div>
+            <div class="detail-title" *ngIf="bankDetails.accountNumber == ''">-</div>
+          </div>
+        </div>
+
+        <div class="section-margin">
+          <label class="label-con">
+            <nb-icon icon="AccountName" pack="housepark"></nb-icon>
+          </label>
+          <div class="border-margin">
+            <span class="title">Account Holder's Name</span>
+            <div class="detail-title" *ngIf="bankDetails.accountName != ''" [innerHtml]="bankDetails.accountName"></div>
+            <div class="detail-title" *ngIf="bankDetails.accountName == ''">-</div>
+            <div class="detail-title" *ngIf="bankDetails.accountName == null"><i>Account name not available</i></div>
+          </div>
+        </div>
+
+        <div class="section-margin">
+          <label class="label-con">
+            <nb-icon icon="bankCode" pack="housepark"></nb-icon>
+          </label>
+          <div class="border-margin">
+            <span class="title">Routing Number</span>
+            <div class="detail-title" *ngIf="bankDetails.bankCode != ''" [innerHtml]="bankDetails.routing_number"></div>
+            <div class="detail-title" *ngIf="bankDetails.bankCode == ''">-</div>
+          </div>
+        </div>
+
+        <div class="section-margin">
+          <label class="label-con">
+            <nb-icon icon="bankCode" pack="housepark"></nb-icon>
+          </label>
+          <div class="border-margin">
+            <span class="title">Currency</span>
+            <div class="detail-title" *ngIf="bankDetails.bankcode != ''" [innerHtml]="bankDetails.currency"></div>
+            <div class="detail-title" *ngIf="bankDetails.bankcode == ''">-</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

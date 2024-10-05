@@ -1,0 +1,30 @@
+@media only screen and (max-width:575px) {
+    .paddfilter {
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    .m-b-20 {
+        margin-bottom: 20px;
+    }
+}
+
+.dark-transaction-id {
+    font-size: 16px ;
+    font-weight: 700 ;
+    color:red ;
+}
+
+.filterwidth {
+    width: 100%;
+}
+
+.btn-filter {
+    background-color: rgb(21, 125, 195);
+    outline: none;
+    color: #FFF;
+    border: 0;
+    padding: 11px 18px;
+    border-radius: 10px;
+}

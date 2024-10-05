@@ -1,0 +1,28 @@
+<nb-card>
+  <nb-card-header>
+    <div class="row">
+      <div class="col-xl-4 col-lg-4 col-sm-12 col-12 m-b-20">Dispute Details</div>
+      <div class="col-xl-2 col-lg-2 col-sm-3 col-12 paddfilter">
+        <input nbInput placeholder="From Date" class="filterwidth" [nbDatepicker]="formpicker" [(ngModel)]="ngModelDate.fromDate" readonly>
+        <nb-datepicker #formpicker [max]="ngModelDate.toDate"></nb-datepicker>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-sm-3 col-12 paddfilter">
+        <input nbInput placeholder="To Date"  class="filterwidth" [nbDatepicker]="topicker" [(ngModel)]="ngModelDate.toDate" readonly>
+        <nb-datepicker #topicker [min]="ngModelDate.fromDate"></nb-datepicker>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-sm-3 col-12 paddfilter" style="white-space: nowrap; padding: 0;">
+        <button (click)="filterData()" class="btn-filter">Filter</button>
+        &nbsp;
+        <button (click)="getAllData()" class="btn-filter">Clear</button>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-sm-3 col-12 paddfilter">
+        <input type="text" nbInput class="filterwidth" (keyup)="searchFilterData()" [(ngModel)]="ngModelDate.search" placeholder="Search">
+      </div>  
+    </div>
+  </nb-card-header>
+
+  <nb-card-body class="full-table-wrap" id="dispute-table">
+    <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)" (userRowSelect)="onUserRowSelect($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

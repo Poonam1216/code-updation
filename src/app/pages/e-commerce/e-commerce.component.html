@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-6 col-lg-4"  *ngFor="let statusCard of statusCards">
+    <ngx-status-card [title]="statusCard.title" [type]="statusCard.type" [valueNumber]="statusCard.value" class="icon-size">
+      <!-- <i [ngClass]="statusCard.iconClass" ></i> -->
+      <img src="./assets/svg/{{statusCard.iconClass}}.svg" width="60" alt="Img" />
+    </ngx-status-card>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-8 col-md-12">
+    <ngx-ecommerce-charts></ngx-ecommerce-charts>
+  </div>
+  <div class="col-lg-4 col-md-12">
+    <ngx-user-activity></ngx-user-activity>
+  </div>
+</div>

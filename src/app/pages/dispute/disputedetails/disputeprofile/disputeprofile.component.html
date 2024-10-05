@@ -1,0 +1,124 @@
+<nb-layout (wheel)="onMouseWheel($event)" #mainEl>
+	<nb-layout-column>
+		<nb-card>
+			<nb-card-header>
+				<div class="row">
+					<div class="col-lg-6 col-sm-12 col-md-6 col-12 profile-title ">
+						<label class="name-title mouse-pointer" (click)="backPage()"><nb-icon icon="arrow" pack="housepark"></nb-icon></label>
+						<label (click)="backPage()" class="mouse-pointer"> <span *ngIf="disputeDetailsResponse.length != 0" [innerHtml]="disputeDetailsResponse.openedbyFirstName+' '+disputeDetailsResponse.openedbyLastName">Ms. Lola P. Rauch </span> <span class="dispute-drover-type" [innerHtml]="' ('+openedByusertype+')'"> </span></label>
+					</div>
+					<div class="col-lg-6 col-sm-4 col-md-6 col-12 paddfilter text-right">
+						<nb-select  *ngIf="disputeDetailsResponse.length != 0" [(selected)]="disputeDetailsResponse.status" >
+							<nb-option value="0">Pending</nb-option>
+							<nb-option value="1">Resolve</nb-option>
+							<nb-option value="2">Closed</nb-option>
+						  </nb-select>
+					</div>
+				</div>
+			</nb-card-header>
+			<nb-card-body style="padding: 0;">
+				<div class="dispute-header">
+					<div class="row">
+				  		<div class="col-lg-3 col-sm-6">
+				  			<div class="disupte-desc" [innerHtml]="disputeDetailsResponse.bookingtransactionId"></div>
+				  			<div class="despute-name">Transaction Id</div>
+				  		</div>
+				  		<div class="col-lg-3 col-sm-6">
+				  			<div class="disupte-desc"><span *ngIf="disputeDetailsResponse.length != 0" [innerHtml]="setDateFormat(disputeDetailsResponse.createdAt)"></span></div>
+				  			<div class="despute-name">Dispute Date</div>
+				  		</div>
+				  		<div class="col-lg-4 col-sm-6">
+				  			<div class="disupte-desc"><span *ngIf="disputeDetailsResponse.length != 0" [innerHtml]="disputeDetailsResponse.againtsFirstName+' '+disputeDetailsResponse.againtsLastName">Denis J. Green</span> (<span [innerHtml]="againtsusertype"></span>)</div>
+				  			<div class="despute-name">Against</div>
+				  		</div>
+				  		<div class="col-lg-2 col-sm-6">
+				  			<div class="disupte-desc">$
+								<span *ngIf="disputeDetailsResponse.length != 0 && disputeDetailsResponse.amount != null" [innerHtml]="disputeDetailsResponse.amount"></span>
+								<span *ngIf="disputeDetailsResponse.length != 0 && disputeDetailsResponse.amount == null">0</span>
+							</div>
+				  			<div class="despute-name">Amount</div>
+				  		</div>
+				  	</div>
+				</div>
+				<div class="dispute-content">
+					<div class="dispute-content-title">Type / Reason</div>
+					<div class="question-answer-content">
+						<div class="row">
+							<div class="col-md-8"><strong *ngIf="disputeDetailsResponse.length != 0" [innerHtml]="disputeDetailsResponse.topic">What is Lorem Ipsum?</strong></div>
+							<div class="col-md-4 text-right">
+								<span class="question-time" *ngIf="disputeDetailsResponse.length != 0" [innerHtml]="setDateFormat(disputeDetailsResponse.createdAt)">02 Nov, 2019, 08:00 AM</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 p-t-10 answer-content" *ngIf="disputeDetailsResponse.length != 0" [innerHtml]="disputeDetailsResponse.comment">
+								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="gallery-data">
+					<div class="row">
+	                  <div class="col-lg-3" *ngFor="let item of files;let i=index">
+	                    <div class="gallery-box">
+	                      <div class="gellery-img" *ngIf="['image/gif','image/png','image/jpeg'].indexOf(item.type)>=0">
+	                        <div class="previewIcon" [ngfBackground]="item"></div>
+	                      </div>
+	                      
+	                      <div class="gallery-details">
+	                        <span>{{ item.name }}</span>
+	                        <div class="full-text">
+	                          <div class="left-text">
+	                            {{ item.size/1024/1024 | number:'.2' }} MB
+	                          </div>
+	                          <div class="right-text">
+	                            <a href="javascript:void(0)" (click)="files.splice(i,1)">Remove</a>
+	                          </div>
+	                        </div>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </div>
+				</div>
+				<div class="submit-form">
+					<div class="row">
+						<div class="col-md-5">
+			                <div 
+			                  ngfDrop
+			                  multiple         = "1"
+			                  selectable       = "1"
+			                  [(validDrag)]    = "validComboDrag"
+			                  [(files)]        = "files"
+			                  accept           = "image/*"
+			                  [maxSize]        = "maxSize"
+			                  [(lastInvalids)] = "lastInvalids"
+			                  [(dragFiles)]    = "dragFiles"
+			                  class            = "select-browser"
+			                  [class.invalid-drag] = "validComboDrag===false"
+			                  [class.valid-drag]   = "validComboDrag"
+			                  (filesChange) = "lastFileAt=getDate()"
+			                  [fileDropDisabled] = "fileDropDisabled">
+			                  <img src="assets/cardetailsicons/ima_ic.svg" />
+			                  <span><strong>Drag File to Upload</strong></span>
+			                  <button nbButton class="choose-file">Choose File</button>
+			                </div>
+			                <!-- <div style="color: #b4b4b4; font-size: 12px;">
+			                  Note: For best slider quality, Please upload 1280 * 800 px image.
+			                </div> -->
+		              	</div>
+		              	<div class="col-md-7 text-right">
+							  <input nbInput placeholder="Title" class="title-textbox" [(ngModel)]="reasonForm.title" />
+							  <div class="required-text" *ngIf="checkRequiredSubmit && reasonForm.title == ''">Title is required field</div>
+
+							<textarea nbInput placeholder="Write a comment" class="title-textarea" [(ngModel)]="reasonForm.comment"></textarea>
+							<div class="required-text" *ngIf="checkRequiredSubmit && reasonForm.comment == ''">Comment is required field</div>
+		              	</div>
+					</div>
+					<div class="text-center">
+						<button nbButton class="btn-save" (click)="submitReasonForm()">Save</button>
+					</div>
+				</div>
+				<ngx-spinner></ngx-spinner>
+			</nb-card-body>
+		</nb-card>
+	</nb-layout-column>
+</nb-layout>	

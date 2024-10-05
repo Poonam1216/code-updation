@@ -1,0 +1,260 @@
+<nb-layout>
+	<nb-layout-column>
+		<nb-card>
+			<nb-card-header>
+				<div class="row">
+					<div class="col-lg-6 col-sm-12 col-md-12 col-12 profile-title ">
+						<label class="name-title mouse-pointer" (click)="backPage()">
+							<nb-icon icon="arrow" pack="housepark"></nb-icon>
+						</label>
+						<label (click)="backPage()" class="mouse-pointer">{{profileData[0].first_name}} {{profileData[0].last_name}}</label>
+					</div>
+					<div class="col-lg-2 col-sm-4 col-md-4 col-12 paddfilter">
+
+					</div>
+				</div>
+			</nb-card-header>
+
+			<nb-card-body>
+				<div class="row">
+					<div class="col-lg-4 col-sm-6 user-image">
+						<img src="{{imgUrl}}{{profileData[0].profile_path}}" alt="Img" onerror="this.src='./assets/svg/profile_ic.svg'" />
+					</div>
+					<div class="col-lg-4 col-sm-6">
+						<div class="section-margin">
+							<label class="label-con">
+								<nb-icon icon="profile" pack="housepark"></nb-icon>
+							</label>
+							<div class="border-margin">
+								<span class="title">Name</span>
+								<div class="detail-title">{{profileData[0].first_name}} {{profileData[0].last_name}}
+								</div>
+							</div>
+						</div>
+
+						<div class="section-margin">
+							<label class="label-con">
+								<nb-icon icon="email" pack="housepark"></nb-icon>
+							</label>
+							<div class="border-margin">
+								<span class="title">Email Address</span>
+								<div class="detail-title">{{profileData[0].email}}</div>
+							</div>
+						</div>
+
+						<div class="section-margin">
+							<label class="label-con">
+								<nb-icon icon="mobile" pack="housepark"></nb-icon>
+							</label>
+							<div class="border-margin">
+								<span class="title">Mobile Number</span>
+								<div class="detail-title">{{profileData[0].mobile}}</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-sm-12">
+						<div class="section-margin">
+							<label class="label-con">
+								<nb-icon icon="cake" pack="housepark"></nb-icon>
+							</label>
+							<div class="border-margin">
+								<span class="title">Date of Birth</span>
+								<div class="detail-title">{{(profileData[0].dob === null) ? '-': profileData[0].dob | date:'mediumDate' : 'UTC'}}</div>
+							</div>
+						</div>
+
+						<div class="section-margin">
+							<label class="label-con">
+								<nb-icon icon="address" pack="housepark"></nb-icon>
+							</label>
+							<div class="border-margin">
+								<span class="title">Address</span>
+								<div class="detail-title" *ngIf="profileData[0].address != ''">{{profileData[0].address}} {{profileData[0].address_two}}</div>
+								<div class="detail-title" *ngIf="profileData[0].address == ''">-</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</nb-card-body>
+		</nb-card>
+
+
+		<div >
+			
+			<hr class="hr-line" />
+			<div class="row">
+				<div class="col-lg-4 col-md-4" *ngFor="let profile of profileData; let i = index">
+					<div class="col-lg-12 col-md-12">
+						<h3>{{profile.vehicleMaker}}</h3>
+						<nb-card class="card-fixed-height">
+							<nb-card-body>
+								<div class="header-car-background">
+									<img src="assets/cardetailsicons/car_details_ic.svg" alt="Img" />
+									<div>Car Details</div>
+								</div>
+								<div class="row form-full-row">
+									<div class="col-6">Licence Plate Number</div>
+									<div class="col-6" *ngIf="profile.licensePlate != null">{{profile.licensePlate}}</div>
+									<div class="col-6" *ngIf="profile.licensePlate == null">-</div>
+								</div>
+								<div class="row form-full-row">
+									<div class="col-6">Year</div>
+									<div class="col-6" *ngIf="profile.year != null"> {{profile.year}}</div>
+									<div class="col-6" *ngIf="profile.year == null">-</div>
+								</div>
+								<div class="row form-full-row">
+									<div class="col-6">Vehicle Maker</div>
+									<div class="col-6" *ngIf="profile.vehicleMaker != null"> {{profile.vehicleMaker}}</div>
+									<div class="col-6" *ngIf="profile.vehicleMaker == null">-</div>
+								</div>
+								<div class="row form-full-row">
+									<div class="col-6">Car Model</div>
+									<div class="col-6" *ngIf="profile.carModelName != null"> {{profile.carModelName}}</div>
+									<div class="col-6" *ngIf="profile.carModelName == null">-</div>
+								</div>
+								<div class="row form-full-row">
+									<div class="col-6">Car Color</div>
+									<div class="col-6" *ngIf="profile.carColor != null"> {{profile.carColor}}</div>
+									<div class="col-6" *ngIf="profile.carColor == null">-</div>
+								</div>
+								<div class="row form-full-row">
+									<div class="col-6">Image</div>
+									<div class="col-6"  *ngIf="(profile.path) && profile.path.length != null"> 
+										<a href="{{imgUrl}}{{imgPath.path}}" target="_blank" *ngFor="let imgPath of profile.path; let i = index">Car {{i+1}}</a>	
+									</div>
+									<div class="col-6" *ngIf="!profile.path">-</div>
+								</div>
+							</nb-card-body>
+						</nb-card>
+					</div>
+				</div>
+								
+				<!-- <div class="col-lg-4 col-md-6">
+					<nb-card class="card-fixed-height">
+						<nb-card-body>
+							<div class="header-car-background license-background">
+								<img src="assets/cardetailsicons/driver_license_ic.svg" alt="Img" />
+								<div>Driver's License</div>
+							</div>
+							<div class="row form-full-row">
+								<div class="col-6">License Number</div>
+								<div class="col-6" *ngIf="profile.licenseNumber != null">{{profile.licenseNumber}}</div>
+								<div class="col-6" *ngIf="profile.licenseNumber == null">-</div>
+							</div>
+							<div class="row form-full-row">
+								<div class="col-6">Driver's License Since</div>
+								<div class="col-6" *ngIf="profile.licenseSince != null">{{profile.licenseSince | date:'mediumDate' : 'UTC'}}</div>
+								<div class="col-6" *ngIf="profile.licenseSince == null">-</div>
+							</div>
+							<div class="row form-full-row">
+								<div class="col-6">Expiry Date of The Driver's License</div>
+								<div class="col-6" *ngIf="profile.licenseExpiry != null">{{profile.licenseExpiry | date:'mediumDate' : 'UTC'}}</div>
+								<div class="col-6" *ngIf="profile.licenseExpiry == null">-</div>
+							</div>
+							<div class="row form-full-row">
+								<div class="col-6">Image</div>
+								<div class="col-6"  *ngIf="(profile.driving_image) && profile.driving_image.length != null"> 
+									<a href="{{imgUrl}}{{imgPath.path}}" target="_blank" *ngFor="let imgPath of profile.driving_image; let i = index">Driver License {{i+1}}</a>	
+								</div>
+								<div class="col-6" *ngIf="!profile.driving_image">-</div>
+							</div>
+						</nb-card-body>
+					</nb-card>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<nb-card class="card-fixed-height">
+						<nb-card-body>
+							<div class="header-car-background insurance-background">
+								<img src="assets/cardetailsicons/insurance_ic.svg" alt="Img" />
+								<div>Insurance</div>
+							</div>
+							<div class="row form-full-row">
+								<div class="col-6">Insurance Number</div>
+								<div class="col-6" *ngIf="profileData[0].insuranceNumber != null">{{profileData[0].insuranceNumber}}</div>
+								<div class="col-6" *ngIf="profileData[0].insuranceNumber == null">-</div>
+							</div>
+							<div class="row form-full-row">
+								<div class="col-6">Insurance Valid Date</div>
+								<div class="col-6" *ngIf="profileData[0].insuranceExpiry != null">{{profileData[0].insuranceExpiry | date:'mediumDate' : 'UTC'}}</div>
+								<div class="col-6" *ngIf="profileData[0].insuranceExpiry == null">-</div>
+							</div>
+							<div class="row form-full-row">
+								<div class="col-6">Image</div>
+								<div class="col-6"  *ngIf="(profile.insurances_image) && profile.insurances_image.length != null"> 
+									<a href="{{imgUrl}}{{imgPath.path}}" target="_blank" *ngFor="let imgPath of profile.insurances_image; let i = index">Insurance {{i+1}}</a>	
+								</div>
+								<div class="col-6" *ngIf="!profile.insurances_image">-</div>
+							</div>
+						</nb-card-body>
+					</nb-card>
+				</div> -->
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<div class="order-history-title">
+					Order History
+					<nb-select style="width: 200px; margin-left: 100px;" placeholder="Select Showcase"
+						[(selected)]="selectedItem" (selectedChange)="changeBooking($event)">
+						<nb-option value="Past">Past</nb-option>
+						<nb-option value="Upcoming">Upcoming</nb-option>
+					</nb-select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<div class="parking-details">
+					<ul>
+						<li *ngFor="let book of bookingdata">
+							<nb-card>
+								<nb-card-body class="order-body-card">
+									<div class="row order-details">
+										<div class="col-5">
+											<img *ngIf="book.path.length !== 0" src="{{imgUrl}}{{book.path[0].path}}" alt="Img" />
+										</div>
+										<div class="col-7">
+											<h5>{{book.vehiclemaker}}</h5>
+											<span><img src="assets/housedetailsicons/location_ic.svg" alt="Img" /> {{book.addressline1}} {{book.addressline2}}</span>
+											<div class="parking-timing">
+												<div class="row">
+													<div class="col-5">
+														<div class="from-to-lable">From</div>
+														<div class="date-time-content">{{book.fromDate | date:'medium':'UTC'}}</div>
+													</div>
+													<div class="col-2" style="padding: 5px;">
+														<img src="assets/housedetailsicons/car_ic.svg" alt="Img" />
+													</div>
+													<div class="col-5">
+														<div class="from-to-lable">To</div>
+														<div class="date-time-content">{{book.toDate | date:'medium':'UTC'}}</div>
+													</div>
+												</div>
+											</div>
+											<div class="parking-price">
+												<div class="row">
+													<div class="col-6">
+														${{book.amount}}
+													</div>
+													<div class="col-6">
+														<button nbButton status="success" *ngIf="book.booking_status == '1'">Completed</button>
+														<button nbButton status="danger" *ngIf="book.booking_status == '2'">Cancelled</button>
+														<button nbButton status="success" *ngIf="book.booking_status == '3'">Upcoming</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</nb-card-body>
+							</nb-card>
+						</li>
+					</ul>
+					<div class="no-data-found" *ngIf="bookingdata.length == 0">
+						<img src="./assets/svg/booking_no-data_ic.svg" alt="Img" />
+						<span>Order history not found</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nb-layout-column>
+</nb-layout>

@@ -1,0 +1,145 @@
+<div class="background-card-color">
+  <div class="row profile-margin">
+    <div class="col-12 col-lg-12 col-md-12">
+      <ngx-houseownerprofile></ngx-houseownerprofile>
+    </div>
+  </div>
+
+  <div class="row profile-margin">
+    <div class="col-12 col-lg-12 col-md-12">
+      <nb-tabset>
+        <nb-tab tabTitle="Parking Spot" class="parking-spit-card mouse-pointer">
+          <div class="row">
+            <div class="col-12 col-lg-6 col-xl-4 col-sm-6" *ngFor="let data of parkingData">
+              <nb-card (click)="goto(data)" *ngIf="data.addressline1 != ''">
+                <div class="row">
+                  <div class="col-12 col-md-4 col-lg-4">
+                    <img class="img-width" *ngIf="data.imageUploads.length !== 0" src="{{imgUrl}}{{data.imageUploads[0].path}}" />
+                  </div>
+                  <div class="col-12 col-md-8 col-lg-8 card-margin">
+                    <div>
+                      <label>
+                        <nb-icon icon="parking-location" pack="housepark"></nb-icon>
+                      </label>
+                      <span class="address-font parking-address">{{data.addressline1}}, {{data.addressline2}}</span>
+                    </div>
+                    <div class="rating-column">
+                      <span class="address-font disten" *ngIf="data.mortgageVerification == 0" style="background-color: #ffff39; color: #000000;">Mortgage Pending</span>
+                      <span class="address-font disten" *ngIf="data.mortgageVerification == 1">Mortgage Approved</span>
+                      <span class="address-font disten" *ngIf="data.mortgageVerification == 2" style="background-color: #ea1515;">Mortgage Reject</span>
+                      <div class="star-float">
+                        <span class="margin-r-ten" *ngIf="data.parkingratings.length != 0" style="display: inline-block;">
+                          <star-rating [value]="data.parkingratings[0].Average" totalstars="5" [checkedcolor]="'gold'" uncheckedcolor="rgb(143, 195, 228)" size="18px" [readonly]="(data.parkingratings[0].Average) ? true : false"></star-rating>	
+                        </span>
+                      </div>  
+                    </div>
+                  </div>
+                </div>
+              </nb-card>
+            </div>
+            <div class="no-data-found" *ngIf="parkingData.length == 0">
+              <img src="./assets/svg/parking_spot_ic.svg" alt="Img" />
+              <span>Parking Spot data not found</span>
+            </div>
+          </div>
+        </nb-tab>
+
+        <!-- BOOKING TAB -->
+        <nb-tab tabTitle="Booking" class="parking-spit-card">
+          <div class="row" >
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let bookData of bookingData">
+              <nb-card *ngIf="bookData.Id != null">
+                <div class="row">
+                  <div class="col-12 col-md-12 col-lg-12 img-width-booking" *ngIf="bookData.path.length !== 0">
+                    <img src="{{imgUrl}}{{bookData.path[0].path}}">
+                  </div>
+                </div>
+                <div class="row " >
+                  <div class="col-12 margin-row">
+                    <!-- <div class="row">
+                      <div class="col-9 col-lg-9 col-md-9 park-name">
+                        RainBald de Voi
+                      </div>
+                      <div class="col-3 col-lg-3 col-md-3 rating-count">
+                        ${{bookData.amount}}
+                      </div>
+                    </div> -->
+
+                    <div class="row">
+                      <div class="col-9 col-lg-9 col-md-9 p-l-ten">
+                        <label>
+                          <nb-icon icon="parking-location" pack="housepark"></nb-icon>
+                        </label>
+                        <span class="address-font parking-address">{{bookData.addressline1}} {{bookData.addressline2}}</span>
+                      </div>
+                      <div class="col-3 col-lg-3 col-md-3 rating-count">
+                        ${{bookData.amount}}
+                      </div>
+                    </div>
+
+                    <div class="row bottom-line-row">
+                      <div class="col-12 border-line"></div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12 col-sm-12 col-md-5 col-lg-5 text-center-resp">
+                        <span class="from-cls">From</span>
+                        <div class="date-time">{{bookData.fromDate | date:'medium' : 'UTC'}}</div>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-2 col-lg-2 text-center-resp">
+                        <label class="m-t-10">
+                          <nb-icon icon="car-round" pack="housepark"></nb-icon>
+                        </label>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-5 col-lg-5 text-center-resp">
+                        <span class="from-cls">To</span>
+                        <div class="date-time">{{bookData.toDate | date:'medium' : 'UTC'}}</div>
+                      </div>
+                    </div>
+                    <div class="row bottom-line-row">
+                      <div class="col-12 border-line"></div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12 col-sm-5 text-center-resp">
+                        <span class="car-title-cls">{{bookData.name}}</span>
+                      </div>
+                      <div class="col-12 col-sm-7 text-center-resp m-t-10-resp text-right">
+                        <span *ngIf="bookData.ratings != null">
+                          <star-rating [value]="bookData.ratings" totalstars="5" [checkedcolor]="'gold'" uncheckedcolor="rgb(143, 195, 228)" size="18px" [readonly]="(bookData.ratings) ? true : false"></star-rating>
+                        </span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </nb-card>
+            </div>
+            <div class="no-data-found" *ngIf="bookingData.length == 0">
+              <img src="./assets/svg/booking_no-data_ic.svg" alt="Img" />
+              <span>Booking not found</span>
+            </div>
+          </div>
+        </nb-tab>
+
+        <nb-tab tabTitle="Mortgage/Lease Proof Document" class="parking-spit-card">
+          <div class="row"> 
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-md-4" *ngFor="let doc of mortgageData">
+              <nb-card (click)="openDocument(doc.path)">
+                <div class="m-30"><img src="assets/housedetailsicons/document_ic.svg" class="mortgare-height"></div>
+                <div class="doc-name-color"><div class="m-doc">{{doc.filename}}</div></div>
+              </nb-card>
+            </div>
+            <div class="no-data-found" *ngIf="mortgageData.length == 0">
+              <img src="./assets/svg/mortgage_lease_proof_documents_ic.svg" alt="Img" />
+              <span>Mortgage/Lease proof document not found</span>
+            </div>
+          </div>
+        </nb-tab>
+      </nb-tabset>
+    </div>
+  </div>
+
+
+</div>

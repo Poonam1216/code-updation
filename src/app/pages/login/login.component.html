@@ -1,0 +1,52 @@
+<nb-layout>
+	<nb-layout-column>
+		<nb-card>
+    <nb-card-body>
+      <div style="width: calc(100% - 15px);">
+        <div class="row">
+          <div class="col-lg-6 login-background">
+            <img src="./assets/images/login_bg.jpg" alt="Img" width="100%" />
+          </div>
+          <div class="col-lg-6 col-12 responsive-login-background">
+            <div class="login-parkign-logo">
+              <img src="./assets/images/logo.svg" alt="Car" />
+            </div>
+            <div class="login-title">
+              Login
+            </div>
+            <div class="login-desc">
+              Hello! Log in with your Email Address
+            </div>
+            <form class="login-form" autocomplete="off" #f="ngForm" (ngSubmit)="SubmitLogin(f)" novalidate>
+              <div class="row">
+                <div class="col-12">
+                  <label>Email Address</label>
+                  <input type="email" nbInput placeholder="Email Address" [(ngModel)]="login_form.email" name="email" required />
+                  <span *ngIf="login_form.email == '' && checkRequiredField">Email is required field.</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <label>Password <a id="fgt-pwd" href="javascript:void(0)" (click)="open()">Forgot Password?</a></label>
+                  <input type="password" nbInput placeholder="Password" [(ngModel)]="login_form.password" name="password" required />
+                  <span *ngIf="login_form.password == '' && checkRequiredField">Password is required field.</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 remember-text">
+                  <input type="checkbox" /> Remember me
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <button nbButton class="btn-login" [disabled]="buttonloader">Login</button>
+                </div> 
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+  </nb-layout-column>
+</nb-layout>

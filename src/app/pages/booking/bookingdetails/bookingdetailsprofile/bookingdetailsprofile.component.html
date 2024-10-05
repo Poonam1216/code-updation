@@ -1,0 +1,99 @@
+<nb-layout>
+	<nb-layout-column>
+		<nb-card>
+			<nb-card-header>
+				<div class="row">
+					<div class="col-lg-6 col-sm-12 col-md-12 col-12 profile-title ">
+						<label (click)="backPage()" class="name-title mouse-pointer"><nb-icon icon="arrow" pack="housepark"></nb-icon></label>
+						<span [innerHtml]="bookingDetailsResponse.bookingtransactionId"></span>
+					</div>
+					<div class="col-lg-2 col-sm-4 col-md-4 col-12 paddfilter">
+						
+					</div>
+				</div>
+			</nb-card-header>
+			<nb-card-body>
+				<div class="booking-slider">
+					<swiper [config]="config" *ngIf="bookingDetailsResponse.path">
+			            <div class="swiper-wrapper" *ngIf="(bookingDetailsResponse.path) && bookingDetailsResponse.path.length !== 0 ">
+			              <div class="swiper-slide" *ngFor="let img of bookingDetailsResponse.path">
+			                <img src="{{imgUrl}}{{img.path}}" />
+			              </div>
+						</div>
+						<div class="swiper-wrapper" *ngIf="(bookingDetailsResponse.path) && bookingDetailsResponse.path.length == 0 ">
+							<div class="swiper-slide">
+							  <img src="assets/images/camera2.jpg" />
+							</div>
+							<div class="swiper-slide">
+							  <img src="assets/images/camera3.jpg" />
+							</div>
+							<div class="swiper-slide">
+							  <img src="assets/images/camera3.jpg" />
+							</div>
+						  </div>
+			            <!-- Add Pagination -->
+			            <div class="swiper-pagination"></div>
+			          </swiper>
+				</div>
+				<div class="bookign-time-content">
+					<div class="bookign-time-card">
+						<div class="row bookign-time-row">
+							<div class="col-5">
+								<div class="from-to-lable">From</div>
+								<div class="date-time-content" *ngIf="bookingDetailsResponse.length != 0" [innerHtml]="setDateFormat(bookingDetailsResponse.fromDate)">10 Oct, 2019, 11:20 PM</div>
+							</div>
+							<div class="col-2" style="padding: 15px;">
+								<img src="assets/housedetailsicons/car_ic.svg" alt="Img" />
+							</div>
+							<div class="col-5 text-right">
+								<div class="from-to-lable">To</div>
+								<div class="date-time-content"  *ngIf="bookingDetailsResponse.length != 0" [innerHtml]="setDateFormat(bookingDetailsResponse.toDate)">10 Oct, 2019, 11:50 PM</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-6 booking-rating">
+								<div style="display: inline-block;">
+									<star-rating [value]="bookingDetailsResponse.avgRating" totalstars="5" [checkedcolor]="'gold'" uncheckedcolor="rgb(143, 195, 228)" size="18px" [readonly]="(bookingDetailsResponse.avgRating !== undefined) ? true : false"></star-rating>	
+								</div>
+								 &nbsp;(<span [innerHtml]="bookingDetailsResponse.totalRating">0</span>)
+							</div>
+							<div class="col-6 booking-price"  *ngIf="bookingDetailsResponse.length != 0" [innerHtml]="'$'+bookingDetailsResponse.amount"></div>
+						</div>
+					</div>
+				</div>
+				<div class="booking-form">
+					<div class="booking-form-group">
+						<div class="row">
+							<div class="col-sm-5 booking-form-left">Transaction id</div>
+							<div class="col-sm-7 booking-form-right" [innerHtml]="bookingDetailsResponse.bookingtransactionId"></div>
+						</div>
+					</div>
+					<div class="booking-form-group">
+						<div class="row">
+							<div class="col-sm-5 booking-form-left">House Owner</div>
+							<div class="col-sm-7 booking-form-right">
+								<span *ngIf="bookingDetailsResponse.length != 0" [innerHtml]="bookingDetailsResponse.houseownerfirstname+' '+bookingDetailsResponse.houseownerlastname"></span> <br />
+								<a href="javascript:void(0)" (click)="openHouseOwnerDetails(bookingDetailsResponse)">View Details</a>
+							</div>
+						</div>
+					</div>
+					<div class="booking-form-group">
+						<div class="row">
+							<div class="col-sm-5 booking-form-left">Parking Spot Address</div>
+							<div class="col-sm-7 booking-form-right" *ngIf="bookingDetailsResponse.length != 0" [innerHtml]="bookingDetailsResponse.addressline1+'  '+bookingDetailsResponse.addressline2"></div>
+						</div>
+					</div>
+					<div class="booking-form-group">
+						<div class="row">
+							<div class="col-sm-5 booking-form-left">Car Owner</div>
+							<div class="col-sm-7 booking-form-right">
+								<span *ngIf="bookingDetailsResponse.length != 0" [innerHtml]="bookingDetailsResponse.carwonerfirstname+' '+bookingDetailsResponse.carownerlastname"></span><br />
+								<a href="javascript:void(0)" (click)="openCarDetails(bookingDetailsResponse)">View Details</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</nb-card-body>
+		</nb-card>
+	</nb-layout-column>
+</nb-layout>

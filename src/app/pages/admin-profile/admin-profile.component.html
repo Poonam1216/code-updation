@@ -1,0 +1,55 @@
+<nb-card>
+  <nb-card-body>
+    <div class="profile-box">
+      <div class="row">
+        <div class="col-12 text-right" style="padding-right: 0;">
+          <span (click)="changeEditStatus()" class="mouse-pointer btn-edit-profile" *ngIf="!editProfile">Edit Profile</span>
+          <span (click)="changeEditStatus()" class="mouse-pointer btn-edit-profile" *ngIf="editProfile">View Profile</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 profile-round">
+          <img src="./assets/svg/profile_ic.svg" alt="Img" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 profile-title">
+          <img src="./assets/svg/name_ic.svg" alt="Img" /> Name
+        </div>
+        <div class="col-12 profile-desc" *ngIf="editProfile">
+          <input type="text" placeholder="Enter Name" [(ngModel)]="profileDetails.name" />
+        </div>
+        <div class="col-12 profile-desc" *ngIf="!editProfile">
+          {{profileDetails.name}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 profile-title">
+          <img src="./assets/svg/email_ic.svg" alt="Img" /> Email
+        </div>
+        <div class="col-12 profile-desc">
+          {{profileDetails.email}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 profile-title">
+          <img src="./assets/svg/mobile_ic.svg" alt="Img" /> Mobile
+        </div>
+        <div class="col-12 profile-desc" *ngIf="editProfile">
+          <input type="text" placeholder="Enter Mobile Number" [(ngModel)]="profileDetails.mobile" />
+        </div>
+        <div class="col-12 profile-desc" *ngIf="!editProfile">
+          {{profileDetails.mobile}}
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+    <div class="row">
+      <div class="col-12 text-right">
+        <button nbButton hero status="primary" class="btn-profile" (click)="saveProfileData()"  *ngIf="editProfile">Update</button>&nbsp;&nbsp;
+        <button nbButton hero status="primary" class="btn-profile" (click)="dismiss()">Close</button>
+      </div>
+    </div>
+  </nb-card-footer>
+</nb-card>

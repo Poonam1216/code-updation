@@ -1,0 +1,14 @@
+@import '../../../../style.css';
+.paddfilter {
+    width: 100%;
+}
+
+.ho-filter{
+  width: 80%;
+}
+
+@media (max-width:768px){
+  .ho-filter{
+    width: 100%;
+  }
+}

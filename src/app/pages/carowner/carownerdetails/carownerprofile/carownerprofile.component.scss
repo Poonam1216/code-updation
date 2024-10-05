@@ -1,0 +1,258 @@
+@import '../../../../@theme/styles/themes.scss';
+
+.font-colr {
+    color: $font-blue;
+}
+
+.profile-title {
+    font-size: 15px;
+    font-weight: 700;
+    // font-family: $noto-regular !important;
+}
+
+.label-con {
+    float:left;
+    margin-right: 10px;
+}
+
+.section-margin {
+    margin-top:15px;
+    border-bottom: 1px solid $border-color;
+}
+
+.border-margin {
+    margin-bottom: 15px;
+}
+
+.title {
+    color:$dark-grey;
+    font-size: 12px;
+}
+
+.detail-title {
+    color:$black-font;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.margin-title {
+    margin-top: 10px;
+}
+
+.img-center {
+    text-align: center;
+}
+
+.name-title {
+    padding-right:25px;
+    cursor: pointer;
+}
+
+.img-w {
+    width:100%;
+}
+
+.user-image {
+    img {
+        width: 250px;
+        margin-top: 50px;
+        border-radius: 50%;
+        height: 250px;
+        object-fit: cover;
+        display: block;
+        margin: auto;
+    }
+}
+
+@media (max-width:768px){
+    .user-image {
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    }   
+}
+
+.header-car-background {
+    background-image: linear-gradient(to right, rgb(2, 225, 225), rgb(6, 196, 198));
+    text-align: center;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px 0;
+    border-radius: 15px;
+    margin-bottom: 10px;
+
+    img {
+        height: 100px;
+        margin-bottom: 15px;
+    }
+}
+
+.license-background {
+    background-image: linear-gradient(to right, rgb(239, 198, 121), rgb(252, 159, 74))
+}
+
+.insurance-background {
+    background-image: linear-gradient(to right, rgb(246, 143, 143), rgb(229, 86, 86));
+}
+
+.card-fixed-height {
+    height: auto;
+
+    .form-full-row {
+        margin-bottom: 15px;
+        border-bottom: 1px solid #DDD;
+        padding: 5px 0 15px;
+        margin: 0 0 10px 0;
+
+        div:first-child {
+            color: #525557;
+        }
+
+        div:last-child {
+            color: #050505;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        a {
+            width: 100%;
+            display: block;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.order-history-title {
+    width: 100%;
+    border-bottom: 1px solid #DDD;
+    padding: 5px 0 15px;
+    font-size: 18px;
+}
+
+.parking-details {
+    width: 100%;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        width: 100%;
+
+        li {
+            float: left;
+            width: 50%;
+            display: block;
+            padding: 20px 10px 0px;
+        }
+    }
+}
+
+.order-body-card {
+    padding: 0;
+    overflow: hidden;
+    border-radius: 10px;
+
+    .order-details {
+        .col-5 {
+            img {
+                width: 100%;
+                height: 220px;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .col-7 {
+        padding: 10px 30px 10px 0px;
+
+        h5 {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        span {
+            font-size: 14px;
+            margin-top: 10px;
+            display: inline-block;
+
+            img {
+                width: 20px;
+                margin-left: -5px;
+            }
+        }
+
+        .parking-timing {
+            padding: 5px 0;
+            border-top: 1px solid #DDD;
+            margin-top: 10px;
+
+            .from-to-lable {
+                color: #b1b1b1;
+            }
+
+            .date-time-content {
+                color: #000;
+                font-size: 12px;
+                font-weight: bold;
+            }
+        }
+
+        .parking-price {
+            border-top:1px solid #DDD;
+
+            .col-6:first-child {
+                color: rgb(30, 135, 200);
+                font-size: 20px;
+                padding: 14px 20px 5px;
+            }
+
+            .col-6:last-child {
+                padding-top: 10px;
+                padding-left: 0;
+                text-align: right;
+
+                button {
+                    border-radius: 20px;
+                    padding: 7px 15px;
+                }
+
+                button[status="success"] {
+                    background-color: rgb(21, 195, 99);
+                }
+
+                button[status="danger"] {
+                    background-color: red;
+                }
+            }
+        }
+    }
+}
+
+.no-data-found {
+    width: 100%;
+    text-align: center;
+
+    img {
+        width: 200px;
+    }
+
+    span {
+        font-size: 20px;
+        width: 100%;
+        display: inline-block;
+        color: #b1b0b0;
+        font-style: italic;
+    }
+}
+
+.hr-line {
+    margin: 20px 0 40px;
+}
+
+@media screen and (max-width: 991px) {
+    .parking-details li {
+        width: 100% !important;
+    }
+}

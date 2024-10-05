@@ -1,0 +1,217 @@
+@import '../../../../@theme/styles/themes.scss';
+
+.background-card-color {
+  background-color: #E5F1F8;
+}
+
+.profile-margin {
+  margin-right: 40px;
+  margin-left: 40px;
+  padding-top: 35px;
+}
+
+
+.img-width {
+  width: 100%;
+  background-size: cover;
+  height: 105px;
+  float: left;
+  border-bottom-left-radius: 0.75rem;
+  border-top-left-radius: 0.75rem;
+  object-fit: fill;
+}
+
+nb-card-body {
+  padding: 0 !important;
+}
+
+.card-margin {
+  margin: 15px 0px;
+}
+
+
+.park-name {
+  font-size: 16px;
+  font-weight: 900;
+  color: $black-font;
+}
+
+.address-font {
+  font-size: 12px;
+  font-weight: 600;
+  color: $dark-grey;
+  margin-left: 5px;
+}
+
+.parking-address {
+  width: calc(100% - 25px);
+  display: block;
+  float: right;
+  min-height: 42px;
+}
+
+.disten {
+  background-color: #1cbf1c;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.rating-margin {
+  margin-left: 3rem;
+}
+
+.rating-count {
+  font-weight: 700;
+  color: $font-blue;
+  text-align: right;
+}
+
+.margin-l-ten {
+  margin-left: 10px;
+}
+
+.margin-r-ten {
+  margin-right: 10px;
+}
+
+.rating-column {
+  margin-top: 15px;
+}
+
+.star-float {
+  float: right;
+}
+
+.img-width-booking {
+  height: 163px;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    object-fit: fill;
+    height: 163px;
+    // border-top-right-radius: 0.75rem;
+    // border-top-left-radius: 0.75rem;
+  }
+}
+
+.from-cls {
+  font-size: 12px;
+  color: $dark-grey;
+  margin-right: 5px;
+}
+
+.car-title-cls {
+  font-size: 14px;
+  color: $dark-grey;
+  font-weight: 700;
+}
+
+.date-time {
+  font-size: 11px;
+  color: $black-font;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.margin-row {
+  padding: 20px 35px;
+
+}
+
+.bottom-line-row {
+  margin: 0px 0px;
+}
+
+.border-line {
+  margin-top: 10px;
+  border-bottom: 1px solid #E5E5E5;
+  margin-bottom: 10px;
+}
+
+.m-t-10 {
+  margin-top: 10px;
+}
+
+.address-icon {
+  padding: 0;
+  padding-left: 5px;
+}
+
+.p-l-ten {
+  padding-left: 10px;
+}
+
+.mortgare-height {
+  max-height: 20vh;
+}
+
+.m-30 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.m-doc {
+  margin: 15px 0px 15px 15px;
+}
+
+.doc-name-color {
+  background-color: #0088C8;
+  color: #fff;
+  font-weight: 600;
+}
+
+.parking-spit-card {
+  padding: 2rem 0;
+  border-top: 2px solid rgb(221, 230, 237);
+  
+  nb-card {
+    cursor: pointer;
+  }
+}
+
+.m-doc {
+  margin: 15px 0px 15px 15px;
+  word-break: break-all;
+  padding: 0 5px 0 0px;
+}
+
+.no-data-found {
+  width: 100%;
+  text-align: center;
+
+  img {
+    width: 200px;
+  }
+
+  span {
+    font-size: 20px;
+    width: 100%;
+    display: inline-block;
+    color: #b1b0b0;
+    font-style: italic;
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+
+  .img-width {
+    margin-top: 5px;
+    border-top-right-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+  }
+
+  .text-center-resp {
+    text-align: center;
+  }
+
+  .m-t-10-resp {
+    margin-top: 10px;
+  }
+}
