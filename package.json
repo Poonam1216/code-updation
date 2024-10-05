@@ -29,7 +29,7 @@
     "release:changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s"
   },
   "dependencies": {
-    "@agm/core": "^1.1.0",
+    "@agm/core": "^3.0.0-beta.0",
     "@angular/animations": "^10.2.5",
     "@angular/cdk": "^10.2.7",
     "@angular/common": "^10.2.5",
@@ -44,8 +44,8 @@
     "@nebular/auth": "4.4.0",
     "@nebular/eva-icons": "4.4.0",
     "@nebular/security": "4.4.0",
-    "@nebular/theme": "^5.1.0",
-    "@swimlane/ngx-charts": "^10.1.0",
+    "@nebular/theme": "^6.2.3",
+    "@swimlane/ngx-charts": "^20.5.0",
     "angular-tree-component": "7.2.0",
     "angular2-chartjs": "0.4.1",
     "angular2-toaster": "^7.0.0",
