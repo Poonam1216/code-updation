@@ -6,7 +6,10 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
-import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
+import {
+	provideHttpClient,
+	withInterceptorsFromDi,
+} from "@angular/common/http";
 import { CoreModule } from "./@core/core.module";
 import { ThemeModule } from "./@theme/theme.module";
 import { AppComponent } from "./app.component";
@@ -17,11 +20,12 @@ import {
 	NbDialogModule,
 	NbMenuModule,
 	NbSidebarModule,
-	NbToastrModule,
+	// NbToastrModule,
 	NbCardModule,
 	NbWindowModule,
 	NbLayoutModule,
 } from "@nebular/theme";
+import { ToastrModule } from "ngx-toastr";
 import { DeleteDialogComponent } from "./pages/dialog/delete-dialog/delete-dialog.component";
 import { DialogModule } from "./pages/dialog/dialog.module";
 import { LoginComponent } from "./pages/login/login.component";
@@ -33,31 +37,43 @@ import { AdminProfileComponent } from "./pages/admin-profile/admin-profile.compo
 import { PasswordStrengthBarModule } from "./pages/password-strength-bar/password-strength-bar.module";
 import { ConfirmpasswordComponent } from "./pages/login/confirmpassword/confirmpassword.component";
 
-@NgModule({ declarations: [
-        AppComponent,
-        ForgotComponent,
-        ChangepasswordComponent,
-        AdminProfileComponent,
-        LoginComponent,
-        ConfirmpasswordComponent,
-    ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        ThemeModule.forRoot(),
-        NbSidebarModule.forRoot(),
-        NbMenuModule.forRoot(),
-        NbDatepickerModule.forRoot(),
-        NbDialogModule.forRoot(),
-        NbWindowModule.forRoot(),
-        NbToastrModule.forRoot(),
-        NbCardModule,
-        NbLayoutModule,
-        NbChatModule.forRoot({
-            messageGoogleMapKey: "AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY",
-        }),
-        CoreModule.forRoot(),
-        DialogModule,
-        FormsModule,
-        PasswordStrengthBarModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+@NgModule({
+	declarations: [
+		AppComponent,
+		ForgotComponent,
+		ChangepasswordComponent,
+		AdminProfileComponent,
+		LoginComponent,
+		ConfirmpasswordComponent,
+	],
+	bootstrap: [AppComponent],
+	imports: [
+		BrowserModule,
+		BrowserAnimationsModule,
+		AppRoutingModule,
+		ThemeModule.forRoot(),
+		NbSidebarModule.forRoot(),
+		NbMenuModule.forRoot(),
+		NbDatepickerModule.forRoot(),
+		NbDialogModule.forRoot(),
+		NbWindowModule.forRoot(),
+		// NbToastrModule.forRoot(),
+		NbCardModule,
+		NbLayoutModule,
+		NbChatModule.forRoot({
+			messageGoogleMapKey: "AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY",
+		}),
+		ToastrModule.forRoot({
+			// Replace NbToastrModule
+			timeOut: 3000, // Default timeout for toasts
+			positionClass: "toast-top-right", // Toast position
+			preventDuplicates: true, // Avoid duplicate toasts
+		}),
+		CoreModule.forRoot(),
+		DialogModule,
+		FormsModule,
+		PasswordStrengthBarModule,
+	],
+	providers: [provideHttpClient(withInterceptorsFromDi())],
+})
 export class AppModule {}
